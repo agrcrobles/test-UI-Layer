@@ -1,10 +1,10 @@
 export default {
     FirebaseConfig: {
-        apiKey: "AIzaSyBrOxqTgvTBMucnqjGSUQLeRYkTWpdWC8U",
-        authDomain: "herc-e1365.firebaseapp.com",
-        databaseURL: "https://herc-e1365.firebaseio.com",
-        projectId: "herc-e1365",
-        storageBucket: "herc-e1365.appspot.com",
-        messagingSenderId: "418928040669"
+        apiKey: "AIzaSyB4c-dlOic0fYfcCUwNbfDtwxj-QDcujOA",
+        authDomain: "hercone-8025f.firebaseapp.com",
+        databaseURL: "https://hercone-8025f.firebaseio.com",
+        projectId: "hercone-8025f",
+        storageBucket: "hercone-8025f.appspot.com",
+        messagingSenderId: "329151475948"
     }
 }
