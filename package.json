@@ -1,0 +1,19 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "dependencies": {
+    "@firebase/app-types": "^0.1.2",
+    "@firebase/database-types": "^0.2.0",
+    "expo": "^25.0.0",
+    "firebase": "^4.12.0",
+    "react": "16.2.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native-button": "^2.3.0",
+    "react-native-deck-swiper": "^1.5.9",
+    "react-navigation": "^1.4.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0"
+  }
+}

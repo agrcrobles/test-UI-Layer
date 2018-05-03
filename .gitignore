@@ -1,0 +1,7 @@
+node_modules/**/*
+.expo/*
+npm-debug.*
+
+#awsmobilejs
+awsmobilejs/.awsmobile/backend-build
+awsmobilejs/\#current-backend-info
