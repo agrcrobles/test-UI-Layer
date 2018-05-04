@@ -1,0 +1,3 @@
+
+   export default key = '86PMMXP33MDAU2X8MBQ2BPZS8QXS1XUBZY';
+

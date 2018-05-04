@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {View, Platform, Text, TouchableHighlight, Image, WebView, } from 'react-native';
+import { View, Platform, Text, TouchableHighlight, Image, WebView, } from 'react-native';
 import BackButton from '../components/BackButton';
 import { STATUS_BAR_HEIGHT } from '../constants';
 import styles from '../assets/styles';
+import fetchData from '../actions/EthActions';
 
 export default class BlockScanner extends Component {
 
@@ -44,12 +45,27 @@ export default class BlockScanner extends Component {
             headerLeft: <BackButton navigation={navigation} />
         }
     }
-render() {
-    return (
-        <WebView
-            source={{ uri: 'https://ethstats.net/' }}
-            style={{ flex: 1 }}
-        />
-    );
+componentDidMount() {
+
 }
+
+    render() {
+        return (
+
+            <View style={styles.container}>
+                <Text style={styles.input}>
+                    Hello
+            </Text>
+
+            </View>
+
+        );
+    }
 }
+
+
+
+// <WebView
+//     source={{ uri: 'https://ethstats.net/' }}
+//     style={{ flex: 1 }}
+// />

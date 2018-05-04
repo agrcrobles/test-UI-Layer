@@ -16,6 +16,9 @@ export const DELETE_ASSET = 'deleteAsset'
 export const GET_TRANS = 'getTrans';
 export const GOT_ASSET_TRANS = 'gotAssetTrans';
 
+//  Eth Actions
+
+
 export const FETCHING_DATA = 'FETCHING_DATA'
 export const FETCHING_DATA_SUCCESS = 'FETCHING_DATA_SUCCESS'
 export const FETCHING_DATA_FAILURE = 'FETCHING_DATA_FAILURE'

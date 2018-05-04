@@ -16,6 +16,7 @@ import wallet from "../components/buttons/walletBtn.png";
 import styles from "../assets/styles";
 import { connect } from 'react-redux';
 import { listAssets, getHercId, fetchAssets } from '../actions/AssetActions';
+import { fetchData } from "../actions/EthActions";
 import BackButton from '../components/BackButton';
 
 
@@ -34,6 +35,7 @@ import BackButton from '../components/BackButton';
   componentDidMount() {
     // this.props.fetchAssets();
     this.props.getHercId();
+    this.props.fetchData();
     // console.log(this.state, 'stateprops')
     
     console.log('working it');
@@ -117,6 +119,7 @@ const mapDispatchToProps = (dispatch) => ({
 
    fetchAssets: () => dispatch(fetchAssets()),
    getHercId: () => dispatch(getHercId()),
+   fetchData: () => dispatch(fetchData())
 
 
 })

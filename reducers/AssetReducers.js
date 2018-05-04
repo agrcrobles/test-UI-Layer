@@ -45,9 +45,7 @@ const rootRef = firebase.database().ref();
 
 
 const INITIAL_STATE = {
-    dataFetched: false,
-    isFetching: false,
-    error: false,
+
 
 
 };
