@@ -35,7 +35,7 @@ import BackButton from '../components/BackButton';
   componentDidMount() {
     // this.props.fetchAssets();
     this.props.getHercId();
-    this.props.fetchData();
+    
     // console.log(this.state, 'stateprops')
     
     console.log('working it');
@@ -119,7 +119,7 @@ const mapDispatchToProps = (dispatch) => ({
 
    fetchAssets: () => dispatch(fetchAssets()),
    getHercId: () => dispatch(getHercId()),
-   fetchData: () => dispatch(fetchData())
+  //  fetchData: () => dispatch(fetchData())
 
 
 })

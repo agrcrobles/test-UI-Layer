@@ -102,29 +102,29 @@ export function fetchAssets(){
     }
   }
 
-// export function listAssets() {
-//     return (dispatch) => {
-//         dispatch({
-//             type: "LIST_ASSETS"
-//         });
-        // let assets = [];
-        // rootRef.child('assets').once('value').
-        //     then((snapshot) => {
-        //         snapshot.forEach((obj) => {
-        //             console.log('objects in listassets');
-        //             assets.push({
-        //                 name: obj.toJSON().Name,
-        //                 key: obj.key,
-        //                 logo: obj.toJSON().Logo,
-        //                 // url: obj.toJSON().url
-        //             });
+    // export function listAssets() {
+    //     return (dispatch) => {
+    //         dispatch({
+    //             type: "LIST_ASSETS"
+    //         });
+            // let assets = [];
+            // rootRef.child('assets').once('value').
+            //     then((snapshot) => {
+            //         snapshot.forEach((obj) => {
+            //             console.log('objects in listassets');
+            //             assets.push({
+            //                 name: obj.toJSON().Name,
+            //                 key: obj.key,
+            //                 logo: obj.toJSON().Logo,
+            //                 // url: obj.toJSON().url
+            //             });
 
-        //         })
+            //         })
 
-        //     }).then(() => dispatch(gotListAssets(assets)))
+            //     }).then(() => dispatch(gotListAssets(assets)))
 
-//     }
-// }
+    //     }
+    // }
 export function gotListAssets(assetList) {
     let assets = assetList;
     console.log('got the list');

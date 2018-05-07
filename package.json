@@ -10,6 +10,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-button": "^2.3.0",
     "react-native-deck-swiper": "^1.5.9",
+    "react-native-simple-radio-button": "^2.7.1",
     "react-navigation": "^1.4.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",

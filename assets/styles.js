@@ -106,7 +106,6 @@ module.exports = StyleSheet.create({
     transPropLabel: {
         color: 'white',
         alignSelf: 'center',
-
         fontWeight: "400",
         fontFamily: 'dinPro',
         fontSize: 14,
