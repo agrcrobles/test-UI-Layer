@@ -16,15 +16,17 @@ const EthReducers = (ethState = ETH_STATE, action) => {
 console.log("ETh reducer")
     switch (action.type) {
         case FETCHING_DATA_SUCCESS:
+        
         console.log('eth reducer');
-            let ethData = action.data
-            return {
+            let ethData = action.data;
+            return Object.assign({}, ethState, {
                 ...ethState,
-                
-                    isFetched: true,
-                    data: ethData
-                
-            }
+                isFetched: true,
+
+                data: ethData
+            })
+        
+    
         case FETCHING_DATA_FAILURE:
                 return {
                     ...ethState,
