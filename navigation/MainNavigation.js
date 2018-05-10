@@ -58,7 +58,7 @@ const MainNavigator = StackNavigator({
     NewAssetConfirm: { screen: NewAssetConfirm },
     EdiT: { screen : EdiT},
     PreDigi: { screen: PreDigi },
-    SpaceScreen: { screen: SpaceScreen }
+    SpaceScreen: { screen: SpaceScreen}
 
 },
 

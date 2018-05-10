@@ -17,16 +17,20 @@ class TransAssetList extends Component {
 
   _onPress = (asset) => {
     const { navigate } = this.props.navigation;
+    const { params } = this.props.navigation.state;
+    console.log(params, 'params')
 
     console.log("going to the trans")
     this.props.selectAsset(asset);
-    navigate('SpaceScreen', { name: asset.name, logo: asset.logo });
+    navigate('SpaceScreen', { name: asset.name, logo: asset.logo, web3: params.web3 });
 
   }
 
 
 
   render() {
+    const { params } = this.props.navigation.state;
+    console.log(params, 'params')
     console.log(this.props)
     let list = this.props.assets.map((asset, index) => {
       return (

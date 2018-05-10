@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, View, Image, TouchableHighlight, Alert } from 'react-native';
 // import WelcomeHeader from "../components/WelcomeHeader";
 import menuOpts from "../components/buttons/menuOptions.png";
@@ -20,83 +20,68 @@ import { fetchData } from "../actions/EthActions";
 import BackButton from '../components/BackButton';
 
 
- class MenuOptions extends Component {
-  // const { navigate } = this.props.navigation;
-//   static navigationOptions = ({navigation}) => ({
-//     headerLeft: <BackButton navigation={navigation} />
-   
-// })
-  
+class MenuOptions extends Component {
+
   constructor(props) {
     super(props);
-   
+
   }
-  
+
   componentDidMount() {
     // this.props.fetchAssets();
     this.props.getHercId();
-    
     // console.log(this.state, 'stateprops')
-    
-    console.log('working it');
-    
-  }
-  
-  render(){
-   
-    const { navigate } = this.props.navigation;
-  
-    return(
-      <View style={styles.container}>
-      
-      {/* <Image source={logo} style={styles.menuLogo}/> */}
-        <Image source={menuOpts} style={styles.menuInputTitle} />
-          
-          <View style={styles.menu}>
-        
 
-            {/* <TouchableHighlight onPress={() => Alert.alert('Uninstalled Component')}>
-            <Image
-              style={styles.button}
-              source={wallet}
-            />
-          </TouchableHighlight>  */}
-     
-          <TouchableHighlight  onPress={() => navigate('PreHipr')}>
+    console.log('working it');
+
+  }
+
+  render() {
+    console.log(this, 'menuopts state')
+    const { navigate } = this.props.navigation;
+
+    return (
+      <View style={styles.container}>
+
+        {/* <Image source={logo} style={styles.menuLogo}/> */}
+        <Image source={menuOpts} style={styles.menuInputTitle} />
+
+        <View style={styles.menu}>
+          <TouchableHighlight onPress={() => navigate('PreHipr')}>
             <Image
               style={styles.button}
               source={hiprBtn}
             />
-          </TouchableHighlight> 
-          
-          <TouchableHighlight  onPress={() => navigate('Create')}>
+          </TouchableHighlight>
+
+          <TouchableHighlight onPress={() => navigate('Create')}>
             <Image
               style={styles.button}
               source={igvc}
             />
-          </TouchableHighlight> 
-          
-          <TouchableHighlight  onPress={() => navigate('Splash1')}>
+          </TouchableHighlight>
+
+          <TouchableHighlight onPress={() => navigate('Splash1')}>
             <Image
               style={styles.button}
               source={verifyBtn}
             />
-          </TouchableHighlight> 
-          
-          <TouchableHighlight  onPress={() => navigate('PreDigi')}>
+          </TouchableHighlight>
+
+          <TouchableHighlight onPress={() => navigate('PreDigi')}>
             <Image
               style={styles.button}
               source={digiView}
             />
-          </TouchableHighlight> 
-          
-          <TouchableHighlight  onPress={() => navigate('TransAssetList')}>
+          </TouchableHighlight>
+
+          <TouchableHighlight onPress={() => navigate('TransAssetList', { web3: this.web3 })}>
             <Image
               style={styles.button}
               source={blockScan}
             />
-          </TouchableHighlight> 
-                  
+          </TouchableHighlight>
+
           {/* <TouchableHighlight>
             <Image
               style={styles.button}
@@ -104,21 +89,21 @@ import BackButton from '../components/BackButton';
             />
           </TouchableHighlight>  */}
 
-          </View>
-<Text style={{ color: '#f3c736', alignSelf: 'baseline', fontSize: 8}}>
-V.0.2.5
-</Text>
         </View>
-      
-           
-    ) 
+        <Text style={{ color: '#f3c736', alignSelf: 'baseline', fontSize: 8 }}>
+          V.0.2.5
+</Text>
+      </View>
+
+
+    )
   };
 }
 
 const mapDispatchToProps = (dispatch) => ({
 
-   fetchAssets: () => dispatch(fetchAssets()),
-   getHercId: () => dispatch(getHercId()),
+  fetchAssets: () => dispatch(fetchAssets()),
+  getHercId: () => dispatch(getHercId()),
   //  fetchData: () => dispatch(fetchData())
 
 

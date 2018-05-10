@@ -10,6 +10,7 @@ import MagicButton from 'react-native-button';
 class SpaceScreen extends Component {
     static navigationOptions = ({ navigation }) => {
         const { params } = navigation.state;
+
         return {
 
             headerTitle:
@@ -66,13 +67,11 @@ class SpaceScreen extends Component {
     }
 
     render() {
+
+        console.log(this.props.navigation)
+        console.log('spacescreen');
         const { navigate } = this.props.navigation;
-console.log('spacescreen');
 
-       
-
-        // const { params } = navigation.state;
-        // const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 {this.state.tx}

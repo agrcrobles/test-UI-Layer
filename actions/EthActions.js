@@ -5,18 +5,20 @@ import {
 } from './types'
 
 import key from '../constants/ethKey'
+import web3 from '../constants/web3';
+// const info = await fetch('https://api-ropsten.etherscan.io/api?module=account&action=balance&address=' + add + '&tag=latest&apikey=' + key)
 
-export function fetchWallet(address) {
-    let add = address;
-    let walletData;
-    console.log('ethfetchWallet')
+export function fetchBlock() {
+
+    console.log('ethfetchBlock')
+
     return async dispatch => {
+        
         function onSuccess(success) {
-           success.json().then((result) =>{
-              console.log(result)
-              dispatch(gotDataSuccess(result))
-          }) 
-            
+            success.json().then((result) => {
+                console.log(result)
+                dispatch(gotDataSuccess(result))
+            })
         }
 
         function onError(error) {
@@ -24,8 +26,8 @@ export function fetchWallet(address) {
         }
 
         try {
-            const info = await fetch('https://api-ropsten.etherscan.io/api?module=account&action=balance&address=' + add + '&tag=latest&apikey=' + key)
-            return onSuccess(info);
+            await web3.eth.getBlock('latest', (onError(error), onSuccess(result)))
+
         } catch (error) {
             return onError(error);
         }
@@ -38,11 +40,11 @@ export function fetchContract(address) {
     console.log('ethfetchContract')
     return async dispatch => {
         function onSuccess(success) {
-           success.json().then((result) =>{
-              console.log(result)
-              dispatch(gotDataSuccess(result))
-          }) 
-            
+            success.json().then((result) => {
+                console.log(result)
+                dispatch(gotDataSuccess(result))
+            })
+
         }
 
         function onError(error) {
@@ -50,7 +52,7 @@ export function fetchContract(address) {
         }
 
         try {
-            const info = await fetch('https://api-ropsten.etherscan.io/api?module=contract&action=getabi&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey='+ key)
+            const info = await fetch('https://api-ropsten.etherscan.io/api?module=contract&action=getabi&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=' + key)
             return onSuccess(info);
         } catch (error) {
             return onError(error);
