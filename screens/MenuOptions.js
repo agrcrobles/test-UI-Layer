@@ -16,7 +16,6 @@ import wallet from "../components/buttons/walletBtn.png";
 import styles from "../assets/styles";
 import { connect } from 'react-redux';
 import { listAssets, getHercId, fetchAssets } from '../actions/AssetActions';
-import { fetchData } from "../actions/EthActions";
 import BackButton from '../components/BackButton';
 
 
@@ -28,16 +27,14 @@ class MenuOptions extends Component {
   }
 
   componentDidMount() {
-    // this.props.fetchAssets();
     this.props.getHercId();
-    // console.log(this.state, 'stateprops')
 
     console.log('working it');
 
   }
 
   render() {
-    console.log(this, 'menuopts state')
+    
     const { navigate } = this.props.navigation;
 
     return (

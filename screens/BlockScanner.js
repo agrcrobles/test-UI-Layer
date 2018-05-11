@@ -67,15 +67,15 @@ class BlockScanner extends Component {
 
         // const { web3 } = this.props.navigation.state.params;
 
-        web3.eth.getBlock('latest', (err, block) => {
-            this.setState({
-                block,
-                isFetching: false,
-            });
-        });
-    }
+    //     web3.eth.getBlock('latest', (err, block) => {
+    //         this.setState({
+    //             block,
+    //             isFetching: false,
+    //         });
+    //     });
+    // }
     // https://api-ropsten.etherscan.io/api?module=contract&action=getabi&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=YourApiKeyToken
-
+    }
     _onSearchWallet = (val) => {
         this.props.fetchBlock();
         // console.log(this.state, 'this.state');
