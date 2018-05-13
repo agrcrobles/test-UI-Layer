@@ -9,4 +9,4 @@ const TESTRPC_ADDRESS = `${network.protocol}://${network.host}/${network.key}`;
 var crypto = require('crypto');
 const web3Provider = new Web3.providers.HttpProvider(TESTRPC_ADDRESS);
     
- export default web3 = new Web3(web3Provider);
+ export default module.web3 = new Web3(web3Provider);

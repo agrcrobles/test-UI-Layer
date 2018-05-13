@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { View, Platform, Text, TouchableHighlight, Image, TextInput } from 'react-native';
+import { View, Platform, Text, TouchableHighlight, Image, TextInput, Button, ScrollView } from 'react-native';
 import BackButton from '../components/BackButton';
 import { STATUS_BAR_HEIGHT } from '../constants';
 import styles from '../assets/styles';
 import { connect } from 'react-redux';
 import { fetchBlock, fetchContract } from '../actions/EthActions';
-import Block from '../components/Block';
-import NewButton from 'react-native-button';
+// import Block from '../components/Block';
+// import NewButton from 'react-native-button';
 import JSONTree from 'react-native-json-tree';
-import web3 from '../constants/web3';
+import Web3 from '../constants/web3';
 
 class BlockScanner extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -52,7 +52,7 @@ class BlockScanner extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            block: null,
+            block: {'still': 'loading'},
             isFetching: true,
             // contract: '0xcCeAE97b9EE2f89E62367bf95d970678a5c59958',
             // wallet: '0xface4F2E421aeBDc384460a331C142c1D8bD8674',
@@ -64,75 +64,93 @@ class BlockScanner extends Component {
     }
 
     componentDidMount() {
-
-        // const { web3 } = this.props.navigation.state.params;
-
+        console.log(Web3, 'webs');
+        Web3.eth.getBlock('latest', (err, block) => {
+            this.setState({
+                block,
+                isLoading: false,
+            });
+            // https://api-ropsten.etherscan.io/api?module=contract&action=getabi&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=YourApiKeyToken
+        })
+    }
+    // _getBlock = (val) => {
+    //     this.props.fetchBlock();
     //     web3.eth.getBlock('latest', (err, block) => {
-    //         this.setState({
-    //             block,
-    //             isFetching: false,
-    //         });
-    //     });
+    // 		this.setState({
+    // 			block,
+    // 			isLoading: false,
+    // 		});
+    // 	});
     // }
-    // https://api-ropsten.etherscan.io/api?module=contract&action=getabi&address=0xBB9bc244D798123fDe783fCc1C72d3Bb8C189413&apikey=YourApiKeyToken
-    }
-    _onSearchWallet = (val) => {
-        this.props.fetchBlock();
-        // console.log(this.state, 'this.state');
-    }
 
-    _onSearchContract = (val) => {
-        this.props.fetchContract(val);
-        // console.log(this.state, 'this.state');
-    }
+    // _onSearchContract = (val) => {
+    //     this.props.fetchContract(val);
+    //     // console.log(this.state, 'this.state');
+    // }
 
 
     render() {
+        let gasLimit, gasUsed, miner;
+        let block = this.state.block;
+        this.state.isLoading
 
+        if (block) {
+            gasLimit = block.gasLimit;
+            gasUsed = block.gasUsed;
+            miner = block.miner;
+        }
+
+        console.log(this.state.block);
         return (
 
             <View style={styles.container}>
                 <Text style={{ color: 'white', height: 30, fontSize: 20 }}>
                     Eth Address: Token/Contract/Transaction
                  </Text>
-                <TextInput
-                    style={{ color: 'white', height: 36, width: 374, fontSize: 16, textAlign: 'center' }}
-                    value={this.state.address}
-                />
-                <View style={{ width: '90%', height: 60, justifyContent: 'space-around', flexDirection: 'row' }}>
-                    <NewButton style={{ margin: 10, textAlign: 'center', height: 50, width: 100, backgroundColor: 'blue' }}
-                        onPress={() => this._onSearchWallet(this.state.wallet)}
-                    >
-                        Search Wallet</NewButton>
-
-                    <NewButton style={{ margin: 10, textAlign: 'center', height: 50, width: 100, backgroundColor: 'blue' }}
-                        onPress={() => this._onSearchContract(this.state.contract)}
-                    >
-                        Search Contract</NewButton>
-                    }}>
-                </View>
-
-                {!this.state.isFetching && <Block block={this.state.block} />}
+            
+           {!this.state.isLoading && <ScrollView><JSONTree data={block} theme={theme} invertTheme={false} /></ScrollView>}
+              
             </View>
-
-        );
+            );
+        }
+    
     }
-}
-
+    
+const theme = {
+                    scheme: 'monokai',
+                author: 'wimer hazenberg (http://www.monokai.nl)',
+                base00: '#272822',
+                base01: '#383830',
+                base02: '#49483e',
+                base03: '#75715e',
+                base04: '#a59f85',
+                base05: '#f8f8f2',
+                base06: '#f5f4f1',
+                base07: '#f9f8f5',
+                base08: '#f92672',
+                base09: '#fd971f',
+                base0A: '#f4bf75',
+                base0B: '#a6e22e',
+                base0C: '#a1efe4',
+                base0D: '#66d9ef',
+                base0E: '#ae81ff',
+                base0F: '#cc6633',
+            };
+            
 const mapStateToProps = (state) => ({
-    // data: state.EthReducers.data,
-    isFetching: state.EthReducers.isFetching,
-    isFetched: state.EthReducers.isFetched,
-    fetchError: state.EthReducers.fetchError
-})
-
+                    // data: state.EthReducers.data,
+                    isFetching: state.EthReducers.isFetching,
+                isFetched: state.EthReducers.isFetched,
+                fetchError: state.EthReducers.fetchError
+            })
+            
 const mapDispatchToProps = (dispatch) => ({
-    fetchBlock: () => dispatch(fetchBlock()),
-    fetchContract: (conAdr) => dispatch(fetchContract(conAdr))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(BlockScanner);
-
+                    fetchBlock: () => dispatch(fetchBlock()),
+                fetchContract: (abi) => dispatch(fetchContract(abi))
+            })
+            
+            export default connect(mapStateToProps, mapDispatchToProps)(BlockScanner);
+            
 // <WebView
 //     source={{ uri: 'https://ethstats.net/' }}
 //     style={{ flex: 1 }}

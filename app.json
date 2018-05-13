@@ -5,7 +5,7 @@
     "slug": "testhercone",
     "version": "0.0.2",
     "privacy": "public",
-    "sdkVersion": "27.0.0",
+    "sdkVersion": "25.0.0",
     "ios": {
       "bundleIdentifier": "com.testhercone.hercmobile"
     },
