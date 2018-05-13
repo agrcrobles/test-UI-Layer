@@ -9,6 +9,7 @@ import { fetchBlock, fetchContract } from '../actions/EthActions';
 // import NewButton from 'react-native-button';
 import JSONTree from 'react-native-json-tree';
 import Web3 from '../constants/web3';
+import abi from '../constants/abi';
 
 class BlockScanner extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -65,6 +66,7 @@ class BlockScanner extends Component {
 
     componentDidMount() {
         console.log(Web3, 'webs');
+        console.log(Web3.eth.contract(abi))
         Web3.eth.getBlock('latest', (err, block) => {
             this.setState({
                 block,
