@@ -1,3 +1,9 @@
 {
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "javascript.validate.enable": false,
+  "editor.formatOnSave": false,
+  "eslint.autoFixOnSave": true,
+  "search.exclude": {
+    "**/node_modules": true
+  }
 }

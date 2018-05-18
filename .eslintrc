@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["prettier"],
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "no-case-declarations": "off",
+    "no-unused-vars": "off",
+	"no-console": "off",
+	"prettier/prettier": ["error", { "trailingComma": "es5", "singleQuote": true }]
+  }
+}
